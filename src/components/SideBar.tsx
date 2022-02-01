@@ -9,13 +9,13 @@ interface Genre {
 interface SideBarProps {
   genres: Genre[];
   selectedGenreId: number;
-  clickButton: (id: number) => void;
+  onClickButton: (id: number) => void;
 }
 
 export function SideBar({
   genres,
   selectedGenreId,
-  clickButton,
+  onClickButton,
 }: SideBarProps) {
   return (
     <nav className="sidebar">
@@ -29,7 +29,7 @@ export function SideBar({
             key={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
-            onClick={() => clickButton(genre.id)}
+            onClick={() => onClickButton(genre.id)}
             selected={selectedGenreId === genre.id}
           />
         ))}
